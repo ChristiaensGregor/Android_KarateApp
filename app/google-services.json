@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "122597012075",
+    "project_id": "karate-lessons-8c130",
+    "storage_bucket": "karate-lessons-8c130.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122597012075:android:a61af3fadcd94066b7b72e",
+        "android_client_info": {
+          "package_name": "com.gregorchristiaens.karatelessons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122597012075-q3vvl0kv13kg967o8cc6sqoncfmnssd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxYFdVcVxbnOBDmI4nq13oCS3KfOJmNQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122597012075-q3vvl0kv13kg967o8cc6sqoncfmnssd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

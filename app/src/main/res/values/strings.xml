@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Karate Lessons</string>
+    <!-- STARTUP PAGE -->
+    <string name="startup_page">Startup Page</string>
+    <string name="startup_page_info">Check credentials and start preloading data</string>
+    <string name="testString_hint">String from fragment_startup</string>
+    <!-- LOGIN PAGE -->
+    <string name="logo_description">Logo Ippan Karate System, One person in fighting stance one person kicking.</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="login">login</string>
+    <string name="or">or</string>
+    <string name="google_sign_in">Google Sign In</string>
+    <string name="register_question">Don\'t have an account?</string>
+    <string name="register_here">Register here.</string>
+    <!-- REGISTER PAGE -->
+    <string name="bow_description">Silhouette of person bowing.</string>
+    <string name="register_title">Register</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="register">register</string>
+    <!-- PROFILE PAGE -->
+    <string name="username">Username</string>
+    <string name="username_hint">your username</string>
+    <string name="email_hint">your email address</string>
+    <string name="email">Email</string>
+    <string name="club">Karate Club</string>
+    <string name="club_hint">your club</string>
+    <string name="grade">Grade</string>
+    <string name="grade_hint">your grade</string>
+    <string name="progress">Progress</string>
+    <string name="progress_hint">1/31</string>
+    <string name="leave_karate_club">Leave Karate Club</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="username_icon_description">A silhouette icon</string>
+    <string name="mail_icon_description">A mail envelope icon</string>
+    <string name="club_icon_description">Multiple silhouettes as an icon.</string>
+    <string name="grade_icon_description">A star icon</string>
+    <string name="progress_icon_description">A vertical progression lin with dots used as an icon for progress</string>
+    <string name="logout">logout</string>
+    <!-- REGISTER PAGE -->
+
+</resources>
