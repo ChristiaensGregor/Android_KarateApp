@@ -43,5 +43,9 @@ class ProfileFragment : Fragment() {
         viewModel.toast.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
+        binding.edit.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_profileFragment_to_lessonFragment)
+        }
     }
 }

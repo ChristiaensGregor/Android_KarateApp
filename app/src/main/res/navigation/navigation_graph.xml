@@ -49,5 +49,13 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.gregorchristiaens.karatelessons.lesson_list.LessonFragment"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list" />
 </navigation>

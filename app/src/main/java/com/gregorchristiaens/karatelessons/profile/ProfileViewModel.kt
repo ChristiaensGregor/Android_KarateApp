@@ -20,6 +20,7 @@ class ProfileViewModel : ViewModel() {
     val user: LiveData<User> get() = userRepository.user
 
     private val userRepository = UserRepository.getInstance()
+    private val lessonRepository = LessonRepository.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
 
@@ -30,6 +31,7 @@ class ProfileViewModel : ViewModel() {
     val toast: LiveData<String> get() = _toast
 
     init {
+        lessonRepository.getLessons()
     }
 
     fun leaveClub() {
