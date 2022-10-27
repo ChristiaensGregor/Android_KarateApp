@@ -17,39 +17,39 @@ class LessonRepository : Repository() {
     override val childPaths: ArrayList<String> get() = arrayListOf("lessons")
 
     private var _lessons = MutableLiveData<List<Lesson>>()
-    val lessons: LiveData<List<Lesson>>
-        get() = _lessons
+    val lessons: LiveData<List<Lesson>> get() = _lessons
 
     private var _lesson = MutableLiveData<Lesson>()
     val lesson: LiveData<Lesson> get() = _lesson
 
     fun getLessons() {
         database.addValueEventListener(object : ValueEventListener {
-                @SuppressLint("NullSafeMutableLiveData")
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d(logTag, "Getting lessons from Database")
-                    Log.d(logTag, "Got Lessons: ${snapshot.value}")
-                    val list = ArrayList<Lesson>()
-                    for (value in snapshot.children) {
-                        val lesson = value.getValue(Lesson::class.java)
-                        if (lesson == null) {
-                            throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
-                        } else {
-                            list.add(lesson)
-                        }
+            @SuppressLint("NullSafeMutableLiveData")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d(logTag, "Getting lessons from Database")
+                Log.d(logTag, "Got Lessons: ${snapshot.value}")
+                val list = ArrayList<Lesson>()
+                for (value in snapshot.children) {
+                    val lesson = value.getValue(Lesson::class.java)
+                    if (lesson == null) {
+                        throw IllegalArgumentException("Could not convert the database object to the local Lesson class")
+                    } else {
+                        list.add(lesson)
                     }
-                    _lessons.value = list
-                    sortLessons()
                 }
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w(logTag, "Failed to read value.", error.toException())
-                }
-            })
+                _lessons.value = list
+                sortLessons()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(logTag, "Failed to read value.", error.toException())
+            }
+        })
     }
 
     @SuppressLint("NullSafeMutableLiveData")
     fun sortLessons() {
-        var list = _lessons.value
+        var list = lessons.value
         if (!list.isNullOrEmpty()) {
             list = list.sortedBy { it.date }
             _lessons.value = list

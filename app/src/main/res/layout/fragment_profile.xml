@@ -11,314 +11,329 @@
             type="com.gregorchristiaens.karatelessons.profile.ProfileViewModel" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/header"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_gradient"
-            android:orientation="vertical"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/header_image"
-                style="@style/circular_profile_image"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/orange"
+                android:orientation="vertical"
+                android:padding="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/roundedImageView"
-                app:strokeColor="@color/dark_orange"
-                app:strokeWidth="2dp"
-                tools:src="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/header_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="@string/username_hint"
-                android:text="@{viewModel.user.userName}"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/header_image"
-                app:layout_constraintStart_toStartOf="@id/header_image"
-                app:layout_constraintTop_toBottomOf="@id/header_image" />
 
-            <TextView
-                android:id="@+id/header_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="@string/email_hint"
-                android:text="@{viewModel.user.email}"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@id/header_image"
-                app:layout_constraintStart_toStartOf="@id/header_image"
-                app:layout_constraintTop_toBottomOf="@id/header_username" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="15dp">
-
-            <ImageView
-                android:id="@+id/icon_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@string/username_icon_description"
-                android:src="@drawable/ic_baseline_account_box_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/orange" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/container_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/icon_username"
-                app:layout_constraintStart_toEndOf="@id/icon_username"
-                app:layout_constraintTop_toTopOf="@id/icon_username">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/header_image"
+                    style="@style/circular_profile_image"
+                    android:src="@drawable/sample_avatar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedImageView"
+                    app:strokeColor="@color/dark_orange"
+                    app:strokeWidth="2dp" />
 
                 <TextView
-                    android:id="@+id/label_username"
+                    android:id="@+id/header_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/username"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:hint="@string/username_hint"
                     android:text="@{viewModel.user.userName}"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-            <ImageView
-                android:id="@+id/icon_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@string/mail_icon_description"
-                android:src="@drawable/ic_baseline_mail_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_username"
-                app:tint="@color/orange" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/container_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/icon_mail"
-                app:layout_constraintStart_toStartOf="@id/container_username"
-                app:layout_constraintTop_toTopOf="@id/icon_mail">
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/header_image"
+                    app:layout_constraintStart_toStartOf="@id/header_image"
+                    app:layout_constraintTop_toBottomOf="@id/header_image"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/label_email"
+                    android:id="@+id/header_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:hint="@string/email_hint"
                     android:text="@{viewModel.user.email}"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-            <ImageView
-                android:id="@+id/icon_club"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@string/club_icon_description"
-                android:src="@drawable/ic_baseline_group_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_mail"
-                app:tint="@color/orange" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/container_club"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/icon_club"
-                app:layout_constraintStart_toStartOf="@id/container_mail"
-                app:layout_constraintTop_toTopOf="@id/icon_club">
-
-                <TextView
-                    android:id="@+id/label_club"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/club"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    app:layout_constraintEnd_toEndOf="@id/header_image"
+                    app:layout_constraintStart_toStartOf="@id/header_image"
+                    app:layout_constraintTop_toBottomOf="@id/header_username"
+                    tools:ignore="TextContrastCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/club"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/icon_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/club_hint"
-                    android:text="@{viewModel.user.karateClub}"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/username_icon_description"
+                    android:src="@drawable/ic_baseline_account_box_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/orange" />
 
-
-            <ImageView
-                android:id="@+id/icon_grade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@string/grade_icon_description"
-                android:src="@drawable/ic_baseline_star_outline_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_club"
-                app:tint="@color/orange" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/container_grade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/icon_grade"
-                app:layout_constraintStart_toStartOf="@id/container_club"
-                app:layout_constraintTop_toTopOf="@id/icon_grade">
-
-                <TextView
-                    android:id="@+id/label_grade"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/grade"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_username"
+                    app:layout_constraintStart_toEndOf="@id/icon_username"
+                    app:layout_constraintTop_toTopOf="@id/icon_username">
 
-                <TextView
-                    android:id="@+id/grade"
+                    <TextView
+                        android:id="@+id/label_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/username"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/username_hint"
+                        android:text="@{viewModel.user.userName}"
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <ImageView
+                    android:id="@+id/icon_mail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/grade_hint"
-                    android:text="@{viewModel.user.grade}"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/mail_icon_description"
+                    android:src="@drawable/ic_baseline_mail_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container_username"
+                    app:tint="@color/orange" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <ImageView
-                android:id="@+id/icon_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@string/progress_icon_description"
-                android:src="@drawable/ic_baseline_linear_scale_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_grade"
-                app:tint="@color/orange" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/container_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/icon_progress"
-                app:layout_constraintStart_toStartOf="@id/container_grade"
-                app:layout_constraintTop_toTopOf="@id/icon_progress">
-
-                <TextView
-                    android:id="@+id/label_progress"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container_mail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/progress"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_mail"
+                    app:layout_constraintStart_toStartOf="@id/container_username"
+                    app:layout_constraintTop_toTopOf="@id/icon_mail">
 
-                <TextView
-                    android:id="@+id/progress"
+                    <TextView
+                        android:id="@+id/label_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email_hint"
+                        android:text="@{viewModel.user.email}"
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <ImageView
+                    android:id="@+id/icon_club"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/progress_hint"
-                    android:text="@{viewModel.user.progress}"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/club_icon_description"
+                    android:src="@drawable/ic_baseline_group_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container_mail"
+                    app:tint="@color/orange" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container_club"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_club"
+                    app:layout_constraintStart_toStartOf="@id/container_mail"
+                    app:layout_constraintTop_toTopOf="@id/icon_club">
+
+                    <TextView
+                        android:id="@+id/label_club"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/club"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/club"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/club_hint"
+                        android:text="@{viewModel.user.karateClub}"
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/leave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:onClick="@{()->viewModel.leaveClub()}"
-                android:text="@string/leave_karate_club"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/container_progress" />
+                <ImageView
+                    android:id="@+id/icon_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/grade_icon_description"
+                    android:src="@drawable/ic_baseline_star_outline_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container_club"
+                    app:tint="@color/orange" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/edit_profile"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/leave" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_grade"
+                    app:layout_constraintStart_toStartOf="@id/container_club"
+                    app:layout_constraintTop_toTopOf="@id/icon_grade">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/reset"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/reset_password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit" />
+                    <TextView
+                        android:id="@+id/label_grade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grade"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/delete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/dark_gray"
-                android:onClick="@{()->viewModel.deleteAccount()}"
-                android:text="@string/delete_account"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/reset" />
+                    <TextView
+                        android:id="@+id/grade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/grade_hint"
+                        android:text="@{viewModel.user.grade}"
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/dark_gray"
-                android:onClick="@{()->viewModel.logout()}"
-                android:text="@string/logout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/delete" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                <ImageView
+                    android:id="@+id/icon_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/progress_icon_description"
+                    android:src="@drawable/ic_baseline_linear_scale_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container_grade"
+                    app:tint="@color/orange" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_progress"
+                    app:layout_constraintStart_toStartOf="@id/container_grade"
+                    app:layout_constraintTop_toTopOf="@id/icon_progress">
+
+                    <TextView
+                        android:id="@+id/label_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/progress"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/progress_hint"
+                        android:text="@{viewModel.user.progress}"
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/leave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:onClick="@{()->viewModel.leaveClub()}"
+                    android:text="@string/leave_karate_club"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_progress"
+                    tools:ignore="TextContrastCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/edit_profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/leave"
+                    tools:ignore="TextContrastCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/reset_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit"
+                    tools:ignore="TextContrastCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:onClick="@{()->viewModel.deleteAccount()}"
+                    android:text="@string/delete_account"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reset" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:onClick="@{()->viewModel.logout()}"
+                    android:text="@string/logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/delete" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
 
 </layout>

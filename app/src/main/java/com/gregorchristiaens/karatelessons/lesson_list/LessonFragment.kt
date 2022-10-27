@@ -1,14 +1,16 @@
 package com.gregorchristiaens.karatelessons.lesson_list
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.gregorchristiaens.karatelessons.databinding.FragmentLessonListBinding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class LessonFragment : Fragment() {
 
@@ -16,15 +18,10 @@ class LessonFragment : Fragment() {
     private val binding: FragmentLessonListBinding get() = _binding!!
 
     private lateinit var viewModel: LessonViewModel
-
-
-    private var columnCount = 1
+    private lateinit var adapter: LessonRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
         viewModel = ViewModelProvider(this)[LessonViewModel::class.java]
     }
 
@@ -33,27 +30,23 @@ class LessonFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLessonListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        with(view) {
-            layoutManager = when {
-                columnCount <= 1 -> LinearLayoutManager(context)
-                else -> GridLayoutManager(context, columnCount)
-            }
-            adapter = MyLessonRecyclerViewAdapter(viewModel.lessons.value?: arrayListOf())
-        }
-        return view
+        adapter = LessonRecyclerViewAdapter()
+        binding.list.layoutManager = LinearLayoutManager(context)
+        binding.list.adapter = adapter
+        return binding.root
     }
 
-    companion object {
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            LessonFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.lessons.observe(viewLifecycleOwner) { lessons ->
+            var sortedLessons = lessons
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                sortedLessons = lessons.sortedBy { lesson -> LocalDate.parse(lesson.date, formatter) }
             }
+            var validLessons = sortedLessons
+            validLessons = validLessons.filter { lesson -> !lesson.expired }
+            lessons.apply { adapter.lessons = validLessons }
+        }
     }
 }

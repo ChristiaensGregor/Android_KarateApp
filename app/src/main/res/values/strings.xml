@@ -42,5 +42,9 @@
     <string name="progress_icon_description">A vertical progression lin with dots used as an icon for progress</string>
     <string name="logout">logout</string>
     <!-- REGISTER PAGE -->
-
+    <!-- LessonCard -->
+    <string name="card_gear">Gear :</string>
+    <string name="card_type">Type :</string>
+    <string name="card_location">Location :</string>
+    <string name="banner_kumite">Image of two people sparring. One person throwing a quick jab to the head of the opponent.</string>
 </resources>
