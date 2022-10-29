@@ -25,11 +25,12 @@ class UserRepository : Repository() {
 
     fun getUser(id: String) {
         database.child(id).get().addOnSuccessListener {
-            Log.d(logTag, "Got user from remote database")
+            Log.d(logTag, "Getting User from Database")
             try {
                 val user = it.getValue(User::class.java)
                 if (user != null) {
                     _user.value = user as User
+                    Log.d(logTag, "Got User:${user}")
                 } else {
                     throw IllegalArgumentException("Could not convert the database object to the local User class")
                 }

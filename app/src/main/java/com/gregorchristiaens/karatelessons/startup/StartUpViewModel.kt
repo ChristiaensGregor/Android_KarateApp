@@ -34,12 +34,11 @@ class StartUpViewModel : ViewModel() {
     init {
         val loggedInUser = auth.currentUser
         if (loggedInUser != null) {
-            Log.d(tag, "User found")
-            userFound = true
-            userRepository.getUser(loggedInUser.uid)
             doneLoading = false
-            _skipLogin.value = userFound && doneLoading
+            userFound = true
             loadData()
+            userRepository.getUser(loggedInUser.uid)
+            _skipLogin.value = userFound && doneLoading
         } else {
             _toLogin.value = true
         }

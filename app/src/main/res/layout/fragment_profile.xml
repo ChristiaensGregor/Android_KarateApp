@@ -41,7 +41,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/roundedImageView"
                     app:strokeColor="@color/dark_orange"
-                    app:strokeWidth="2dp" />
+                    app:strokeWidth="2dp"
+                    tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/header_username"

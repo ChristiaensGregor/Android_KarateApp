@@ -2,17 +2,17 @@ package com.gregorchristiaens.karatelessons.startup
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
-import com.gregorchristiaens.karatelessons.databinding.FragmentStartupBinding
 import com.gregorchristiaens.karatelessons.R
+import com.gregorchristiaens.karatelessons.databinding.FragmentStartupBinding
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -53,6 +53,12 @@ class StartUpFragment : Fragment() {
             if (it) Navigation.findNavController(binding.root)
                 .navigate(R.id.action_startUpFragment_to_loginFragment)
         }
+        /*
+        val displayMetrics = requireContext().resources.displayMetrics
+        val dpHeight = displayMetrics.heightPixels / displayMetrics.density
+        val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+        Log.d(logTag,"Height = $dpHeight  || Width = $dpWidth")
+         */
     }
 
     override fun onDestroyView() {
