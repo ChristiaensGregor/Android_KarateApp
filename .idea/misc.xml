@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/grego/GregorChristiaens/Repositories/Android/Android_KarateApp/app/src/main/res/layout-w600dp/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/grego/GregorChristiaens/Repositories/Android/Android_KarateApp/app/src/main/res/layout-w600dp/fragment_profile.xml" value="0.1472663139329806" />
         <entry key="..\:/Users/grego/GregorChristiaens/Repositories/Android/Android_KarateApp/app/src/main/res/layout/fragment_lesson.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/grego/GregorChristiaens/Repositories/Android/Android_KarateApp/app/src/main/res/layout/fragment_login.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/grego/GregorChristiaens/Repositories/Android/Android_KarateApp/app/src/main/res/layout/temp.xml" value="0.25" />
       </map>
     </option>
