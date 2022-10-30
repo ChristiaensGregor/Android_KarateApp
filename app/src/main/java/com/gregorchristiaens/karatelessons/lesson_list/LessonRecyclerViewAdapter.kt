@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.MutableLiveData
 import com.gregorchristiaens.karatelessons.databinding.FragmentLessonBinding
 import com.gregorchristiaens.karatelessons.domain.Lesson
 
@@ -43,7 +42,7 @@ class LessonRecyclerViewAdapter : RecyclerView.Adapter<LessonRecyclerViewAdapter
         }
     }
 
-    fun getGear(type: String): String {
+    private fun getGear(type: String): String {
         return when (type) {
             "Standard" -> "Gi, Belt"
             "Kumite" -> "Gi, Belt, Boxing gloves, Shin guards"

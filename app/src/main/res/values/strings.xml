@@ -47,4 +47,7 @@
     <string name="card_type">Type :</string>
     <string name="card_location">Location :</string>
     <string name="banner_kumite">Image of two people sparring. One person throwing a quick jab to the head of the opponent.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password_text">Don\'t worry, fill out your email below and we\'ll help you out right away!</string>
 </resources>

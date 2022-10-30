@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.gregorchristiaens.karatelessons.FireBaseOptions
 import com.gregorchristiaens.karatelessons.R
 import com.gregorchristiaens.karatelessons.databinding.FragmentLoginBinding
 
@@ -28,7 +29,7 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         googleSignInOptions = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("122597012075-q3vvl0kv13kg967o8cc6sqoncfmnssd9.apps.googleusercontent.com")
+            .requestIdToken(FireBaseOptions().serverClientId)
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), googleSignInOptions)
@@ -53,6 +54,10 @@ class LoginFragment : Fragment() {
         binding.register.setOnClickListener {
             Navigation.findNavController(binding.root)
                 .navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        binding.forgot.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
         }
         viewModel.toProfile.observe(viewLifecycleOwner) {
             if (it) Navigation.findNavController(binding.root)

@@ -48,9 +48,9 @@ class StartUpViewModel : ViewModel() {
         viewModelScope.launch {
             for (i in 0..10) {
                 _load.emit(i)
-                delay(400L)
+                delay(200L)
             }
-            delay(700L)
+            delay(400L)
             Log.d(tag, "Done loading")
             doneLoading = true
             _skipLogin.value = userFound && doneLoading
