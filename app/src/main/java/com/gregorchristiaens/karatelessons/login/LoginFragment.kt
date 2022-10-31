@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
         }
         viewModel.toProfile.observe(viewLifecycleOwner) {
             if (it) Navigation.findNavController(binding.root)
-                .navigate(R.id.action_loginFragment_to_profileFragment)
+                .navigate(R.id.action_loginFragment_to_menuFragment)
         }
     }
 

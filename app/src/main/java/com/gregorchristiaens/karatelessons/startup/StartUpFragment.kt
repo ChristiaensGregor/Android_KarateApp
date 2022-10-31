@@ -1,6 +1,7 @@
 package com.gregorchristiaens.karatelessons.startup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,7 @@ class StartUpFragment : Fragment() {
         }
         viewModel.skipLogin.observe(viewLifecycleOwner) {
             if (it) Navigation.findNavController(binding.root)
-                .navigate(R.id.action_startUpFragment_to_profileFragment)
+                .navigate(R.id.action_startUpFragment_to_menuFragment)
         }
         viewModel.toLogin.observe(viewLifecycleOwner) {
             if (it) Navigation.findNavController(binding.root)

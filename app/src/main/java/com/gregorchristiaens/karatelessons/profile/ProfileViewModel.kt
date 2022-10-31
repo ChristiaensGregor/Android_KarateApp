@@ -20,7 +20,6 @@ class ProfileViewModel : ViewModel() {
     val user: LiveData<User> get() = userRepository.user
 
     private val userRepository = UserRepository.getInstance()
-    private val lessonRepository = LessonRepository.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
 
@@ -30,15 +29,12 @@ class ProfileViewModel : ViewModel() {
     private var _toast = MutableLiveData<String>()
     val toast: LiveData<String> get() = _toast
 
-    init {
-        lessonRepository.getLessons()
-    }
 
     fun leaveClub() {
         Log.d(logTag, "Leave club")
     }
 
-    fun logout() {
+    private fun logout() {
         auth.signOut()
         _toLogin.value = true
     }

@@ -50,4 +50,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="forgot_password_text">Don\'t worry, fill out your email below and we\'ll help you out right away!</string>
+    <string name="lessons">Lessons</string>
+    <string name="events">Events</string>
+    <string name="kata">Kata</string>
+    <string name="profile">Profile</string>
 </resources>
