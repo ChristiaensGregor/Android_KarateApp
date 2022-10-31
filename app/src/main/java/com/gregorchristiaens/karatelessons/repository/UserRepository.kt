@@ -3,6 +3,7 @@ package com.gregorchristiaens.karatelessons.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.auth.FirebaseUser
 import com.gregorchristiaens.karatelessons.domain.User
 import java.lang.IllegalArgumentException
 
@@ -33,6 +34,25 @@ class UserRepository : Repository() {
                     Log.d(logTag, "Got User:${user}")
                 } else {
                     throw IllegalArgumentException("Could not convert the database object to the local User class")
+                }
+            } catch (ex: IllegalArgumentException) {
+                Log.d(logTag, ex.message.toString())
+            }
+        }.addOnFailureListener { exception ->
+            Log.d(logTag, exception.message.toString())
+        }
+    }
+
+    fun checkUser(id: String, userData: User) {
+        database.child(id).get().addOnSuccessListener {
+            Log.d(logTag, "Checking if user has data in Database")
+            try {
+                val existingUser = it.getValue(User::class.java)
+                if (existingUser != null) {
+                    _user.value = existingUser as User
+                    Log.d(logTag, "Got User:${existingUser}")
+                } else {
+                    addUser(userData)
                 }
             } catch (ex: IllegalArgumentException) {
                 Log.d(logTag, ex.message.toString())

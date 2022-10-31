@@ -89,21 +89,9 @@ class LoginViewModel : ViewModel() {
                             Log.d(logTag, "signInWithCredential:success")
                             val user = auth.currentUser
                             if (user != null && user.displayName != null && user.email != null) {
-                                userRepository.getUser(user.uid)
-                                var u = userRepository.user.value
-                                Log.d(logTag, "Checking if user already had data ${u.toString()}")
-                                if (u == null) {
-                                    u = User(
-                                        user.uid,
-                                        user.email!!,
-                                        user.displayName!!,
-                                        null,
-                                        null,
-                                        null
-                                    )
-                                    Log.d(logTag, u.toString())
-                                    userRepository.addUser(u)
-                                }
+                                val userData =
+                                    User(user.uid, user.email!!, "googlePW", null, null, null)
+                                userRepository.checkUser(user.uid, userData)
                             }
                             _toProfile.value = true
                         } else {
