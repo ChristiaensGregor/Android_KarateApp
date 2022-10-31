@@ -34,7 +34,7 @@ class LoginViewModel : ViewModel() {
     fun login() {
         val email = email.value
         val password = password.value
-        if (email != null && password != null && validateEmail(email) && validatePassword(password)) {
+        if (validateEmail(email) && validatePassword(password) && email != null && password != null) {
             Log.d(logTag, "Valid email & password format")
             viewModelScope.launch {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
@@ -42,7 +42,14 @@ class LoginViewModel : ViewModel() {
                         Log.d(logTag, "Login Successful")
                         auth.currentUser?.let { userRepository.getUser(it.uid) }
                         _toProfile.value = true
-                    } else Log.d(logTag, task.exception?.message.toString())
+                    } else {
+                        val message = task.exception?.message.toString()
+                        if (message.contains("password")) {
+                            _passwordError.value = message
+                        } else {
+                            _emailError.value = message
+                        }
+                    }
                 }
             }
         }

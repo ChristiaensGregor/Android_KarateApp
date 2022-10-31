@@ -39,11 +39,10 @@ class RegisterViewModel : ViewModel() {
         val email = email.value
         val password = password.value
         val repeat = repeatPassword.value
-        if (email != null && password != null && repeat != null && userName != null && validateEmail(
-                email
-            ) && validatePassword(
-                password
-            ) && validateRepeatPassword(repeat)
+        if (validateEmail(email) &&
+            validatePassword(password) &&
+            validateRepeatPassword(repeat) &&
+            email != null && password != null && repeat != null && userName != null
         ) {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -59,7 +58,15 @@ class RegisterViewModel : ViewModel() {
                         )
                     )
                     _toProfile.value = true
-                } else Log.d(tag, task.exception?.message.toString())
+                } else {
+                    val message = task.exception?.message.toString()
+                    if (message.contains("password")) {
+                        _passwordError.value = message
+                    } else {
+                        _emailError.value = message
+                    }
+                    Log.d(tag, task.exception?.message.toString())
+                }
             }
         }
     }
@@ -87,6 +94,10 @@ class RegisterViewModel : ViewModel() {
     private fun validateRepeatPassword(repeatPassword: String?): Boolean {
         if (repeatPassword.isNullOrEmpty() || repeatPassword == "" || repeatPassword.trim() == "") {
             _repeatPasswordError.value = "Password repeat can not be empty"
+            repeatPasswordError.value?.let { Log.d(tag, it) }
+            return false
+        } else if (repeatPassword != password.value) {
+            _repeatPasswordError.value = "The two entered passwords must match"
             repeatPasswordError.value?.let { Log.d(tag, it) }
             return false
         }
