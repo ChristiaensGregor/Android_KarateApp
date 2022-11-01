@@ -56,9 +56,9 @@ class LessonRepository : Repository() {
         }
     }
 
-    private fun addLesson(lesson: Lesson) {
+    fun addLesson(lesson: Lesson) {
         try {
-            database.child("lessons").child(lesson.id)
+            database.child(lesson.id)
                 .setValue(lesson)
                 .addOnCompleteListener {
                     Log.d(logTag, "Saved Lesson: ${lesson.id}")
