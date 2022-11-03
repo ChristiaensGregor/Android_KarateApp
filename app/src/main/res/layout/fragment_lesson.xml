@@ -79,15 +79,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Participate" />
+                android:text="@string/participate" />
 
             <TextView
                 android:id="@+id/lesson_participants_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
                 android:layout_marginStart="30dp"
-                tools:text="Participants: " />
+                android:layout_marginEnd="5dp"
+                android:text="@string/participants"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/lesson_participants_count"

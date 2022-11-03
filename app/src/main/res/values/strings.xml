@@ -54,4 +54,6 @@
     <string name="events">Events</string>
     <string name="kata">Kata</string>
     <string name="profile">Profile</string>
+    <string name="participants">Participants:</string>
+    <string name="participate">Participate</string>
 </resources>
