@@ -56,4 +56,9 @@
     <string name="profile">Profile</string>
     <string name="participants">Participants:</string>
     <string name="participate">Participate</string>
+    <string name="check_in_participants">Participants</string>
+    <string name="check_in_hint">Enter the lesson code or scan the QR-code presented by the teacher</string>
+    <string name="check_in_input_hint">Lesson Code</string>
+    <string name="qr_code_scanner_content_description">Icon used to identify QR-Code scanner</string>
+    <string name="check_in_menu_test_check_in">Test Check-In</string>
 </resources>
