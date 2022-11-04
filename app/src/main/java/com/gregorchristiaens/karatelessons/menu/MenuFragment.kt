@@ -45,6 +45,10 @@ class MenuFragment : Fragment() {
                 .navigate(R.id.action_menuFragment_to_profileFragment)
 
         }
+        binding.menuCheckIn.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_menuFragment_to_lessonCheckInFragment)
+        }
         viewModel.toLogin.observe(viewLifecycleOwner) {
             if (it) {
                 Navigation.findNavController(binding.root)
